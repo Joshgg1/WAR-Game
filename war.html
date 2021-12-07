@@ -29,12 +29,12 @@
         function startGame()
         {
             
-             var comp = Math.round(Math.random() * 52);
-             console.log(comp);
+             var comp = Math.floor(Math.random() * 52);
+             console.log("Computer Num: " + comp);
              
 
-             var player = Math.round(Math.random() * 52);
-             console.log(player);
+             var player = Math.floor(Math.random() * 52);
+             console.log("Player Num: " + player);
              
 
              document.getElementById("myPictureComp").src = myPix[comp];
@@ -42,7 +42,7 @@
 
              if(comp > player)
              {
-                 idDivScore.innerHTML = "You lost!"
+                 alert("You lost")
                  compscore++
                  rounds++
                  idDivRound.innerHTML = "Rounds: " + rounds
@@ -50,15 +50,17 @@
              }
              else if(comp < player)
              {
-                 idDivScore.innerHTML = "You won!"
+                 alert("You won!")
                  playerscore++
                  rounds++
                  idDivRound.innerHTML = "Rounds: " + rounds
                  idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
              }
-             else if(comp == player)
+             else{
+                
+                if(comp == player)
              {
-                 idDivScore.innerHTML = "TIE!"
+                 alert("TIE!")
                  rounds++
                  idDivRound.innerHTML = "Rounds: " + rounds
                  idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
@@ -67,6 +69,7 @@
                  
                 
              }
+            }
 
              
             
@@ -115,7 +118,7 @@
         <br>
         Player:
         <br>
-        <img src="https://s3.amazonaws.com/images.penguinmagic.com/images/products/original/8007b.jpg" width="305" height="312" id="myPicturePlayer" alt="some image2">
+        <img src="https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?k=20&m=157772536&s=170667a&w=0&h=46bM0a2wuwcddiOzNOHTfS9PcUzjXwNTTCy33SrkC_0=" width="305" height="312" id="myPicturePlayer" alt="some image2">
 
         
     </body>
