@@ -2,6 +2,14 @@
     <head>
         <!--The title :)-->
         <title>WAR</title>
+
+        <style>
+            body {
+                
+               background-image: url("https://image.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg");
+            }
+
+         </style>
        
         <script> 
         
@@ -28,29 +36,32 @@
 
         function startGame()
         {
+
+            var max = 51;
+            var min = 0;
             
-             var comp = Math.floor(Math.random() * 52);
+             var comp = Math.floor(Math.random() * (max - min + 1) + min);
              console.log("Computer Num: " + comp);
              
 
-             var player = Math.floor(Math.random() * 52);
+             var player = Math.floor(Math.random() * (max - min + 1) + min);
              console.log("Player Num: " + player);
              
 
              document.getElementById("myPictureComp").src = myPix[comp];
              document.getElementById("myPicturePlayer").src = myPix[player];
 
-             if(comp > player)
+             if(comp % 13 > player % 13)
              {
-                 alert("You lost")
+                 idDivOutput.innerHTML = "You lost"
                  compscore++
                  rounds++
                  idDivRound.innerHTML = "Rounds: " + rounds
                  idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
              }
-             else if(comp < player)
+             else if(comp % 13 < player % 13)
              {
-                 alert("You won!")
+                idDivOutput.innerHTML = "You won!"
                  playerscore++
                  rounds++
                  idDivRound.innerHTML = "Rounds: " + rounds
@@ -58,9 +69,9 @@
              }
              else{
                 
-                if(comp == player)
+                if(comp % 13 == player % 13)
              {
-                 alert("TIE!")
+                 idDivOutput.innerHTML ="TIE!"
                  rounds++
                  idDivRound.innerHTML = "Rounds: " + rounds
                  idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
@@ -70,6 +81,8 @@
                 
              }
             }
+
+          
 
              
             
@@ -107,11 +120,10 @@
         
 
 
-        <div id="idDivAlert"></div> 
+        <div id="idDivOutput"></div> 
         <br><br>
 
-        <div id="idDivCard"></div> 
-        <br><br>
+        
         Computer:
         <br>
         <img src="https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?k=20&m=157772536&s=170667a&w=0&h=46bM0a2wuwcddiOzNOHTfS9PcUzjXwNTTCy33SrkC_0=" width="305" height="312" id="myPictureComp" alt="some image">
