@@ -13,88 +13,145 @@
        
         <script> 
         
-        var compscore = 0
-        var playerscore = 0
-        var rounds = 0 
-        
-        
+            var compscore = 0
+            var playerscore = 0
+            var rounds = 0 
+            
+            
             var myPix = [];
+                
             
-        
 
-        function initialize()
-        {
-            for(var i = 0; i <=51; i++)
+            function initialize()
             {
-                myPix.push(i + ".jpg");
+                for(var i = 0; i <=51; i++)
+                {
+                    myPix.push(i + ".jpg");
+                }
+
+                console.log(myPix);
+
+                
             }
 
-            console.log(myPix);
+            function startGame()
+            {
 
-            
-        }
-
-        function startGame()
-        {
-
-            var max = 51;
-            var min = 0;
-            
-             var comp = Math.floor(Math.random() * (max - min + 1) + min);
-             console.log("Computer Num: " + comp);
-             
-
-             var player = Math.floor(Math.random() * (max - min + 1) + min);
-             console.log("Player Num: " + player);
-             
-
-             document.getElementById("myPictureComp").src = myPix[comp];
-             document.getElementById("myPicturePlayer").src = myPix[player];
-
-             if(comp % 13 > player % 13)
-             {
-                 idDivOutput.innerHTML = "You lost"
-                 compscore++
-                 rounds++
-                 idDivRound.innerHTML = "Rounds: " + rounds
-                 idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
-             }
-             else if(comp % 13 < player % 13)
-             {
-                idDivOutput.innerHTML = "You won!"
-                 playerscore++
-                 rounds++
-                 idDivRound.innerHTML = "Rounds: " + rounds
-                 idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
-             }
-             else{
+                var max = 51;
+                var min = 0;
+                var cardhearts = 0
+                var cardspades = 0
+                var carddiamonds = 0
+                var cardclovers = 0
                 
-                if(comp % 13 == player % 13)
-             {
-                 idDivOutput.innerHTML ="TIE!"
-                 rounds++
-                 idDivRound.innerHTML = "Rounds: " + rounds
-                 idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
-
-
-                 
+                var comp = Math.floor(Math.random() * (max - min + 1) + min);
+                console.log("Computer Num: " + comp);
                 
-             }
+
+                var player = Math.floor(Math.random() * (max - min + 1) + min);
+                console.log("Player Num: " + player);
+                
+
+                document.getElementById("myPictureComp").src = myPix[comp];
+                document.getElementById("myPicturePlayer").src = myPix[player];
+
+                if(comp % 13 > player % 13)
+                {
+                    idDivOutput.innerHTML = "You lost"
+                    compscore++
+                    rounds++
+                    idDivRound.innerHTML = "Rounds: " + rounds
+                    idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
+                }
+                else if(comp % 13 < player % 13)
+                {
+                    idDivOutput.innerHTML = "You won!"
+                    playerscore++
+                    rounds++
+                    idDivRound.innerHTML = "Rounds: " + rounds
+                    idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
+                }
+                else{
+                    
+                    if(comp % 13 == player % 13)
+                {
+                    idDivOutput.innerHTML ="TIE!"
+                    rounds++
+                    idDivRound.innerHTML = "Rounds: " + rounds
+                    idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore                           
+               }
+        
             }
 
-          
 
-             
+
+                if(compscore >= 10)
+                {
+                    idDivOutput.innerHTML = "YOU LOST THE GAME"
+                    playerscore = 0
+                    rounds = 0
+                    compscore = 0
+                    idDivRound.innerHTML = "Rounds: " + rounds
+                    idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
+                }
+                else if(playerscore >= 10)
+                {
+                    idDivOutput.innerHTML = "YOU WON THE GAME"
+                    playerscore = 0
+                    rounds = 0
+                    compscore = 0
+                    idDivRound.innerHTML = "Rounds: " + rounds
+                    idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
+                }
+
+
+
+
+                if(comp >= 0 && comp <= 14|| player >= 0 && player <= 14 )
+                {
+                    cardspades++
+                    idDivCards.innerHTML = "Hearts: " + car
+
+
+                }
+               
             
 
-    }
 
-        
-        
-        function restartGame()
-        {
-            location.reload();
+                
         }
+
+
+
+            function pacifist()
+                
+            {
+                var max = 51;
+                var min = 0;
+                
+                var pac = Math.floor(Math.random() * (max - min + 1) + min);
+                console.log("pacifist: " + pac);
+
+                document.getElementById("myPictureComp").src = myPix[pac];
+                document.getElementById("myPicturePlayer").src = myPix[pac];
+
+                
+                idDivOutput.innerHTML ="TIE!"
+                rounds++
+                idDivRound.innerHTML = "Rounds: " + rounds
+                idDivScore.innerHTML = "Player: " + playerscore + " Computer: " + compscore
+
+
+                    
+                    
+                
+                }
+            
+            
+            function restartGame()
+            {
+                location.reload();
+            }
         
                           
         </script>
@@ -116,11 +173,16 @@
         <input type= "button" value="Restart" onclick="restartGame()" >
         <input type= "button" value="Play Round" onclick="startGame()" >
         <br><br>
+        <input type= "button" value="Pacifist" onclick="pacifist()" >
+        <br><br>
 
         
 
 
         <div id="idDivOutput"></div> 
+        <br><br>
+
+        <div id="idDivCards"></div> 
         <br><br>
 
         
