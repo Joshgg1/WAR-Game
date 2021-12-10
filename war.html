@@ -2,26 +2,26 @@
     <head>
         <!--The title :)-->
         <title>WAR</title>
-
+        <link href="style.css" rel="stylesheet" type="text/css" />
         <style>
-            body {
-                
-               background-image: url("https://image.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg");
+            body 
+            {
+                background-image: url('https://th.bing.com/th/id/R.da0a131b8e94f1e242c5d86b703f0c99?rik=805G2sR0dcOQAw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fbTweH9E.jpg&ehk=874xUMlYSwU65DxSpfTyw1pRgL%2fiiudc3NmY%2fHJcP84%3d&risl=&pid=ImgRaw&r=0');
             }
-
+            
          </style>
        
         <script> 
-        
+            //variables
             var compscore = 0
             var playerscore = 0
             var rounds = 0 
             
-            
+            //array
             var myPix = [];
                 
             
-
+            //Intializes array and uses imgs(cards)
             function initialize()
             {
                 for(var i = 0; i <=51; i++)
@@ -33,28 +33,29 @@
 
                 
             }
-
+            //function used when "start game" button is clicked 
             function startGame()
             {
-
+                //variables for generated num
                 var max = 51;
                 var min = 0;
+                //variables for when each type of  is called
                 var cardhearts = 0
                 var cardspades = 0
                 var carddiamonds = 0
                 var cardclovers = 0
-                
+                //computers rand generated num
                 var comp = Math.floor(Math.random() * (max - min + 1) + min);
                 console.log("Computer Num: " + comp);
                 
-
+                //players ran generated num
                 var player = Math.floor(Math.random() * (max - min + 1) + min);
                 console.log("Player Num: " + player);
                 
-
+                //Takes randomly generated number and finds img from the array
                 document.getElementById("myPictureComp").src = myPix[comp];
                 document.getElementById("myPicturePlayer").src = myPix[player];
-
+                //These determine who wins and loses
                 if(comp % 13 > player % 13)
                 {
                     idDivOutput.innerHTML = "You lost"
@@ -84,7 +85,7 @@
             }
 
 
-
+                //once either the player or the computer reaches ten rounds won, the game ends with one winning and one losing 
                 if(compscore >= 10)
                 {
                     idDivOutput.innerHTML = "YOU LOST THE GAME"
@@ -105,8 +106,7 @@
                 }
 
 
-
-
+                //These are for numbering each type of card and how often it is used
                 if(comp >= 0 && comp <= 14|| player >= 0 && player <= 14 )
                 {
                     cardspades++
@@ -141,7 +141,7 @@
         }
 
 
-
+            //The "pacifist" function creates a forced tie by generating a new single random number
             function pacifist()
                 
             {
@@ -184,37 +184,309 @@
        
 
         
+        <!--Body elements-->
+                <h1>Look down! :)</h1>
+                <div id="idDivRound"></div>
+                <br><br>    
+                <div id="idDivScore"></div> 
+                <br><br>
+                <input type= "button" value="Restart" onclick="restartGame()" >
+                <input type= "button" value="Play Round" onclick="startGame()" >
+                <br><br>
+                <input type= "button" value="Pacifist" onclick="pacifist()" >
+                <br><br>
 
-        <div id="idDivRound"></div>
-        <br><br>    
-        <div id="idDivScore"></div> 
-        <br><br>
-        <input type= "button" value="Restart" onclick="restartGame()" >
-        <input type= "button" value="Play Round" onclick="startGame()" >
-        <br><br>
-        <input type= "button" value="Pacifist" onclick="pacifist()" >
-        <br><br>
-
-        
-
-
-        <div id="idDivOutput"></div> 
-        <br><br>
-
-        <div id="idDivCards"></div> 
-        <br><br>
-
-        
-        Computer:
-        <br>
-        <img src="https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?k=20&m=157772536&s=170667a&w=0&h=46bM0a2wuwcddiOzNOHTfS9PcUzjXwNTTCy33SrkC_0=" width="305" height="312" id="myPictureComp" alt="some image">
-        <br>
-        Player:
-        <br>
-        <img src="https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?k=20&m=157772536&s=170667a&w=0&h=46bM0a2wuwcddiOzNOHTfS9PcUzjXwNTTCy33SrkC_0=" width="305" height="312" id="myPicturePlayer" alt="some image2">
-
-        
-    </body>
+                
 
 
-</html>
+                <div id="idDivOutput"></div> 
+                <br><br>
+
+                <div id="idDivCards"></div> 
+                <br><br>
+
+                <!--The initial imgs show the backside of the cards :)-->
+                Computer:
+                <br>
+                <img src="https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?k=20&m=157772536&s=170667a&w=0&h=46bM0a2wuwcddiOzNOHTfS9PcUzjXwNTTCy33SrkC_0=" width="305" height="312" id="myPictureComp" alt="some image">
+                <br>
+                Player:
+                <br>
+                <img src="https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?k=20&m=157772536&s=170667a&w=0&h=46bM0a2wuwcddiOzNOHTfS9PcUzjXwNTTCy33SrkC_0=" width="305" height="312" id="myPicturePlayer" alt="some image2">
+
+                
+        <!DOCTYPE HTML>
+        <HTML>
+
+            <head>
+
+            <title>Minions CSS</title>
+
+            <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+
+            </head>
+
+
+
+
+            <body>
+
+                
+
+                <div class="container">
+
+                        
+
+                    <div class="bill">
+
+                        <div class="lights">
+                            <span class="white_light"></span>
+                            <span class="dark_light"></span>
+                        </div>
+                        <div class="hair">
+                            <span class="hair1"></span>
+                            <span class="hair1 make_it_left_hair1"></span>
+                            <span class="hair2"></span>
+                        </div>
+
+                        <div class="eyes">
+                            <div class="eye_animate"></div>
+
+                            <div class="glasses"></div>
+                                <div class="white_part">
+                                    <div class="brown_eye">
+                                        <span class="black_part"></span>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="black_tie">
+                            <span class="right_tie">
+                                <div class="top_tie"></div>
+                                <div class="down_tie"></div>
+                            </span>
+                            <span class="left_tie">
+                                <div class="top_tie"></div>
+                                <div class="down_tie"></div>
+                            </span>
+                        </div>
+
+                        <div class="smile"></div>
+
+                        <div class="arm"></div>
+                        <div class="hand"><span class="hand_parts"><span></div>
+
+                        <div class="arm make_it_right_arm"></div>
+                        <div class="hand make_it_right_hand"><span class="hand_parts"><span></div>
+
+                        <div class="curves">
+                            <span class="curve1"></span>
+                            <span class="curve1 make_it_left_curve"></span>
+                            <span class="curve2"></span>
+                        </div>
+
+                        <div class="clothes">
+                            <div class="main"></div>
+                            <div class="blue_borders"></div>
+                            <div class="right_shirt"></div>
+                            <div class="right_shirt make_it_left"></div>
+                            <div class="bottom"></div>
+                        </div>
+
+                        <div class="pocket">
+                            <div class="logo"></div>
+                            <span class="lines"></span>
+                        </div>
+
+                        <div class="legs">
+                            <div class="right_leg"></div>
+                            <div class="right_leg make_it_left_leg"></div>
+                            <div class="shoes"><span class="small_shoes"></span></div>
+                            <div class="shoes make_it_left_shoes"><span class="small_shoes"></span></div>
+                        </div>
+
+                        <h2>Bill</h2>
+                    </div>
+
+
+
+
+
+                    <div class="jerry">
+
+                        <div class="lights">
+                            <span class="white_light"></span>
+                            <span class="dark_light"></span>
+                        </div>
+                        <div class="jerry_hair">
+                            <ul>
+                            <li class="h1"></li>
+                            <li class="h2"></li>
+                            <li class="h3"></li>
+                            <li class="h4"></li>
+                            <li class="h5"></li>
+                            <li class="h6"></li>
+                            <li class="h7"></li>
+                            <li class="h8"></li>
+                            <li class="h9"></li>
+                            <li class="h10"></li>
+                            <li class="h11"></li>
+                            <li class="h12"></li>
+                            </ul>
+                        </div>
+
+                        <div class="eyes1">
+                            <div class="eye_animate"></div>
+
+                            <div class="glasses"></div>
+                                <div class="white_part">
+                                    <div class="brown_eye">
+                                        <span class="black_part"></span>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="eyes2">
+                            <div class="eye_animate"></div>
+
+                            <div class="glasses"></div>
+                                <div class="white_part">
+                                    <div class="brown_eye">
+                                        <span class="black_part"></span>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="jerry_hand">
+                            <div class="jerry_lh"></div>
+                            <div class="animated_lh">
+                                <span class="gloves_lh"></span>
+                                <span class="gloves_lh2"></span>
+                            </div>
+
+                            <div class="jerry_rh"></div>
+                            <span class="gloves_rh"></span>
+                        </div>
+
+                        <div class="black_tie">
+                            <span class="right_tie">
+                                <div class="top_tie"></div>
+                                <div class="down_tie"></div>
+                            </span>
+                            <span class="left_tie">
+                                <div class="top_tie"></div>
+                                <div class="down_tie"></div>
+                            </span>
+                        </div>
+
+                        <div class="jerry_smile">
+                            <span class="teeth1"></span>
+                            <span class="teeth2"></span>
+                        </div>
+
+                        <div class="curves">
+                            <span class="jerry_curve1"></span>
+                            <span class="jerry_curve1 jerry_left_curve"></span>
+                            <span class="jerry_curve2"></span>
+                        </div>
+
+                        <div class="clothes">
+                            <div class="main_jerry"></div>
+                            <div class="right_shirt jerry_right_shirt"></div>
+                            <div class="right_shirt jerry_left_shirt"></div>
+                            <div class="jerry_bottom"></div>
+                        </div>
+
+                        <div class="pocket">
+                            <div class="logo"></div>
+                            <span class="lines"></span>
+                        </div>
+
+                        <div class="legs">
+                            <div class="jerry_shoes"><span class="jerry_small_shoes"></span></div>
+                            <div class="jerry_shoes jerry_left_shoes"><span class="jerry_small_shoes"></span></div>
+                        </div>
+
+                        <h2>Jerry</h2>
+
+
+                    </div>
+
+
+                    <div class="evil">
+
+                        <ul class="evil_hair">
+                            <li class="eh1"></li>
+                            <li class="eh2"></li>
+                            <li class="eh3"></li>
+                            <li class="eh4"></li>
+                            <li class="eh5"></li>
+                        </ul>
+
+                        <div class="eyes">
+                            <div class="eye_animate"></div>
+
+                            <div class="glasses"></div>
+                                <div class="white_part">
+                                    <div class="brown_eye">
+                                        <span class="black_part"></span>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="black_tie">
+                            <span class="right_tie">
+                                <div class="top_tie"></div>
+                                <div class="down_tie"></div>
+                            </span>
+                            <span class="left_tie">
+                                <div class="top_tie"></div>
+                                <div class="down_tie"></div>
+                            </span>
+                        </div>
+
+                        <div class="evil_mouth">
+                            <span class="evil_teeth"></span>
+                            <span class="evil_teeth1"></span>
+                        </div>
+
+                        <div class="clothes">
+                            <div class="right_shirt evil_right_shirt"></div>
+                            <div class="right_shirt evil_left_shirt"></div>
+                            <div class="evil_bottom"></div>
+                            <div class="evil_logo"><p>M</p></div>
+                        </div>
+
+                        <div class="legs">
+                            <div class="evil_right_leg"></div>
+                            <div class="evil_right_leg evil_left_leg"></div>
+                            <div class="shoes evil_right_shoes"><span class="small_shoes"></span></div>
+                            <div class="shoes evil_left_shoes"><span class="small_shoes"></span></div>
+                        </div>
+
+
+                        <div class="evil_hand">
+                            <div class="evil_rh">
+                                <span class="evil_gloves_rh"></span>
+                            </div>
+                            <div class="evil_lh">
+                                <span class="evil_gloves_lh"></span>
+                            </div>
+                        </div>
+
+                        <h2>Evil</h2>
+
+                    </div>
+
+
+                </div>
+
+            </body>
+
+        </HTML>
+
+                
+            </body>
+
+
+        </html>
